@@ -7,6 +7,5 @@ This repository should be used to save all docs created on reactioon.
     |__ language-version.extension
 ```
 
-
-@Contributors
+## Contributors
 - José Wilker <josewilker@reactioon.com>

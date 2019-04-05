@@ -1,13 +1,5 @@
-# Change Log
+# Changelog
+All notable changes to reactioon will be documented in this file.
 
-All changes that we're making on our tool should be related here.
-
-File structure
-
-```
-date - details of fix / new features
-```
-
-# Log
-
-2019-05-05 - Started changelog
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).

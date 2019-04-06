@@ -1,0 +1,511 @@
+% 
+% Modelo white-paper 
+%
+% Marcelo Pereira
+%
+% 
+% e-mail: psnc4ards@gmail.com
+%
+
+
+\documentclass[
+	% -- opções da classe memoir --
+	article,			% indica que é um artigo acadêmico
+	12pt,				% tamanho da fonte
+	oneside,			% para impressão apenas no verso. Oposto a twoside
+	a4paper,			% tamanho do papel. 
+	% -- opções do pacote babel --
+	%english,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	english,
+	sumario=tradicional
+	]{abntex2}
+
+
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{nomencl} 			% Lista de simbolos
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% Para melhorias de justificação
+\usepackage{float}				% Para ajuste na posição de figuras e tabelas
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{adjustbox}
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\definecolor{barblue}{RGB}{153,204,254}
+\definecolor{groupblue}{RGB}{51,102,254}
+\definecolor{linkred}{RGB}{165,0,33}
+
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{mathdots}
+\usepackage{yhmath}
+\usepackage{cancel}
+\usepackage{color}
+\usepackage{siunitx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{tabularx}
+\usepackage{booktabs}
+
+
+
+
+% ---
+		
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+		
+% ---
+% Pacotes de citações
+% ---
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Reactioon White Paper}
+\autor{José Wilker,  \and Jonathas Figueiredo, \and Lucas Tonini}
+\local{Brasil}
+\data{} 
+% ---
+
+% ---
+% Alterando o aspecto da cor azul
+% ---
+\definecolor{blue}{RGB}{41,5,195}
+% ---
+
+% ---
+% Informações do PDF
+% ---
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={Modelo de artigo científico com abnTeX2},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{artigo científico}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% ---
+% Compila o índice
+% ---
+\makeindex
+% ---
+
+% ---
+% Altera as margens padrões
+% ---
+\setlrmarginsandblock{2cm}{2cm}{*}
+\setulmarginsandblock{2cm}{2cm}{*}
+\checkandfixthelayout
+% ---
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{.5cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% Espaçamento simples
+\SingleSpacing
+% ---
+
+% --- 
+% Cabeçalho 
+% --- 
+\makepagestyle{meuestilo}
+  \makeoddhead{meuestilo} %%pagina ímpar ou com oneside
+     {Reactioon}
+     {Vol. 1,  n\textsuperscript{o} 1 (2019)}
+     {White-paper 1.2,  page. \thepage}
+% ---
+
+% ---
+% Margem para resumo, palavras-chave, abstract e keywords
+% ---
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+% ----
+
+% ---
+% Início do documento
+% ---
+\begin{document}
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+% Aplica o cabeçalho em todas as páginas, excetuando-se a primeira
+\pagestyle{meuestilo}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% Página de titulo
+\maketitle
+
+% Aplica cabeçalho na primeira página
+\thispagestyle{meuestilo}
+% ---
+
+% -----------------------------------------------------------
+% Resumo em português
+% -----------------------------------------------------------
+\begin{changemargin}{1cm}{1cm} 
+ \textbf{Abstract} – The development of Blockchain technology has highlighted an alternative paradigm for financial and non-financial iteration among individuals and organizations. The so-called smart contracts provides a basis for the development of new economic relations in an efficient and safe way. In this white paper we present the Reactioon, a non-possession crypto-asset management platform, which uses artificial intelligence for trading and forecasting. Reactioon aims to become the largest decentralized crypto-assets management network, relying on the symbiosis between in-humans trust and artificial intelligence capacities.
+ 
+ %Use este artigo como modelo para formatar o artigo que você deseja submeter para publicação na Revista Mecatrone.  Inicie o resumo do seu artigo com a palavra “Resumo” em negrito, seguido de um traço.  Os parágrafos de resumo e as palavras-chave (que vem em seguida) devem ter um recuo de 1 cm dos dois lados. Se o artigo não for escrito em inglês, acrescente as versões em inglês do título, resumo e palavras-chaves no final, antes dos minicurrículos dos autores.
+
+ \vspace{\onelineskip}
+ 
+ \noindent
+ \textbf{Keywords} – Cripto-assets; Trading; Forecasting; Artificial Intelligence. 
+ %artigo científico; formatação; diagramação; estilo 
+\end{changemargin}
+
+% ---
+
+%\begin{enumerate}[label=\Alph*]
+%\item \textit{Subitem}
+%\end{enumerate}
+
+% ----------------------------------------------------------
+% Introdução
+% ----------------------------------------------------------
+\section{Our Vision}
+The financial and non-financial utilities that can be structured over blockchain networks are diverse and the quick development of new projects, organizations and contracts based on this technology has created several tokens and altcoins that are currently traded in different exchanges around the world. Most of these projects share the structural basis of the blockchain initiatives: decentralization and security for their users. 
+
+Currently however, the purpose of blockchain technology is partially distorted by centralization mechanisms such as crypto custody enterprises and centralized exchanges. We at Reactioon belive that this scenario is just a transient step towards total decentralization in crypto environment. 
+
+We understand that crypto-currencies and assets traded through smart contracts represent the future of trading in a global economy, we belive that in near future cripto-currencies and contracts will partially replace national cash and government-based contracts around the World. 
+
+Our belief is guided by the Theory of Value and by some historical virtual currencies experiences around the world. Notably some real applications such as WeChat-Pay in China and M-Pesa in Africa reinforce the theory that the market is ready to use virtual crypto-assets making its expansion into all layers of the population  a matter of time and trust.
+
+As part of our contribution to the crypto world we present in this paper a decentralized non-possession crypto-asset management platform aimed to give users the possibility to hold their crypto-assets safe while making profits via limited-access management system, especially by using built-in AI trading system.
+
+
+\section{Problem Statement}
+
+People who owns crypto-assets usually do so because they believe in the project behind each token or coin, and have attributed a value to it. The price is the result of different in-market interactions and translates people expectations about some good, in this case about crypto-assets.
+
+Because there exists differences in perspective and knowledge about a certain project or coin, the market price of an asset may fluctuate considerably, causing some risk of capital loss as well as some opportunities for short-term gains. The result is that if ones does not properly manage its cripto-portifolio carefully,  it may lead to some capital losses and eventually loss of confidence in the crypto asset itself.
+
+Some centralized custody platforms have come up to fill this gap, they typically offer an alternative opportunity for investors to keep their money safe while making profits from third-party strategies. The most part of these platforms guarantee a fixed return on an initial investment using Bitcoin, Ethereum, or Dollars. The argued method used by them to justify the orign of these returns are usually operations involving trading, arbitrage or buy-and-hold strategies. Unfortunately though, the most part of these platforms are Ponzi schemes aimed to collect money and eventually disappear.  
+
+That is the exactly scenario where Reactioon network take place, we deliver to the crypto community a reliable network platform to handle asset management services with no direct possession, meaning that managers can directly arange someone's portfolio without necessarily keeping the assets. 
+
+% \begin{figure}[H]     % Com o pacote "float", o "[H]" fixa a figura nesse lugar 
+%     \centering
+%     \includegraphics[width=0.5\textwidth]{figure}
+%     \caption{figura}
+%     \label{figura}
+% \end{figure}
+
+
+
+%The interest on this algorithm for the ship problem lies on the fact that it can be used to construct a discrete rudder and thrust control policy, using an approximation for the $Q$ function with relatively few parameters of the Artificial Neural Nework. The counterpart of this method is that it has to be applied together with discrete rudder and propeller actions.
+
+
+\section{The proposed solution}
+
+In traditional financial market, clients have the option of entrusting custody of their assets to experts managers in stock funds, real estate funds and even trading funds. In this context, the managers have the decision-making power of resource allocation and they seek good investments opportunities aligned with the client suitability level. In this context, fund managers who achieve the greatest success are those who achieve confidence and good historical performance. 
+
+While in traditional market this is the model by which clients are used to have their assets managed, in the crypto-asset market the idea of third-party management of crypto-coins and tokens funds is still recent. Inspired by existing capital management models, we at Reactioon propose a model adapted to the crypto-asset market, based on security, trust and decentralization.
+
+We at Reactioon rely on the following basis for building our crypto-asset management ecosystem:
+
+\begin{itemize}
+    \item [1] Management without active crypto possession.
+    \item [2] The use of artificial intelligence to perform trade.
+    \item [3] Transparency in the relationship between human managers and clients.
+    \item [4] Enhance human cognitive abilities using AI.
+\end{itemize}
+To carry out the Reactioon asset custody network following the basis presented above, we at Reactioon have designed an infrastructure based on the use of trade API tokens issued by exchanges for financial operation. In such way the item 1 of the list above is satisfied, ensuring that Reactioon users have full control of their crypto-assets and are responsible for choosing the organization that holds of their cripto-asset. This is guaranteed since the tokens do not allow any withdraw or external transactions using user funds.
+
+The use of Artificial Intelligence (AI) for trading, as stated in item 2, is a service provided by Reactioon network that allows users to make profits by taking advantage of the volatility of a given criptocurrency pair. By using market forecasting, a preprogrammed artificial intelligence algorithm performs automatic trade into users exchanges accounts and even provide signals for hand-operated trading. In order to access the trading services customers have to using Reactioon (RTN) currency, issued during the project ICO.
+
+As part of our strategy of decentralization and transparency (item 3), the user of Reactioon network can choose which Exchanges to trust their coins custody,  ensuring that each user is free to choose which institution to trust the security of their coins. The Reactioon development team is working every day to increase the number of supported Exchange, our goal is to include decentralized Exchange as a way to strengthen the project's decentralization philosophy. More details about the supported Exchanges can be found in the Roadmap section.
+
+In addition to the use of robots for trading management, we at Reactioon propose in our platform a model in which users with the status of Managers will be able to create their own investment funds for managing funds of investing users. In this case, investing users can choose in which fund / manager to invest based on trust and  historical data performance. In our design the fund manager receives the payment for his services through the Reactioon token (RTN) that can be further resold on the market.
+
+We at Reactioon see a great potential in human-management crypto-asset funds, we understand that in the medium-term many of the securities currently traded on the stock market will be traded through smart contracts,  making the Reactioon environment a possible structure where these trades will take place. 
+
+In this context, we plan to provide data to support human managers through technical and fundamental analysis using artificial intelligence technology. The data may include portfolio recommendations and probabilistic analyzes based on asset characteristics, historical analysis and economic context. By helping managers in decision making, we follow the global trend for increasing human cognitive performance aided by AI technology as stated in item 4.
+
+Figure 1 presents a simplified diagram of the Reactioon Network. The network is composed by two different types of nodes, AI-based nodes and Human-based nodes. Nodes are structures containing strategic decision algorithms and are the interface by which clients can consign their asset management to a third-party entity (AI or human-manager). 
+
+A Client who prefers to trust his assets to an AI manager (Client X) may provide his API token issued by the Exchange in which he keeps the funds. In this case, to contract an AI trading strategy service client X must choose some settings such as risk level currency pair, etc, before start the trade contract. Finally, in order to run the AI-trading management contract, client X has to pay a fixed amount of Reactioon token (RTN) for a delimited period of time (i.e 30 days). While the contract is running, the clients funds at Exchange X will be traded directly by the node algorithm. The node owner will recieve the respective amount of RTN token paid by client X for each day of trading service provided.
+
+On the same way, a client who prefers to trust his assets to a Human manager (Client Y) may provide his API token issued by the Exchange in which he keeps the funds. Once client Y has chosen the fund manager and the type of portfolio (high, medium or low risk) he must pay a certain amount of RTN token start the management contract. The human manager will manually send the purchase and sale orders of a given asset directly to the exchange of client Y. The manager will receive the RTN tokens as his strategy is being periodically applied.
+
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth]{\input{diagrams/node_diagram.tex}}
+\caption{Reactioon network diagram}
+\end{figure}
+
+In both forms of management contract the client can choose not to provide the API key of his exchange, in this case however the client have to perform the trades by hand based on the real-time trading signals provided by the Reactioon nodes. This option is not recommended for AI trading strategies and short-term strategies managed by humans.
+
+\section{Roadmap}
+\subsection{Development steps}
+This section presents the Roadmap of Reactioon project, describing each development step and our main goals. Figure 2 depict all planned steps.
+
+STEP 0 is the project Initial Coin Offer (ICO). During this step RTN tokens will be issued to investors who are aligned with our ideas interested in our project. We see 3 different types of investor:
+\begin{itemize}
+    \item Level-0 refers to  investor looking for gains with buy and hold strategy using RTN tokens. 
+    \item Level-1 refers to investors aiming to use platform as clients of our management services. 
+    \item Level 3 refers to investors planning to buy and run their own nodes in near future. 
+\end{itemize}
+
+STEP 1 is the project Proof of concept. This step is planned to run in parallel with the project ICO as a way to endorse the project trust and reputation. During this step a list of Exchanges are planned to be included in the project trade API system.
+
+
+
+
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth]{\input{diagrams/roadmap.tex}}
+\caption{Roadmap diagram}
+\end{figure}
+STEP 2 is the inclusion of third-parties AI nodes at Reactioon network. This will be the first step towards total decentralization. During this step some AI nodes will be distributed to investors aiming to run their own AI-based trading node. To run a service node, investors must have a valid licence token issued by the Reactioon Development Team through a RTN payment or auction. The license tokens are used to limit the number of online nodes in order to increase the RTN value and to avoid that large-volume trading operation induce a direct change on cripto-market natural trend that could lead to decline in profits. 
+
+STEP 3 is the inclusion of third-parties human nodes at Reactioon network. Because human-nodes works differently from AI-nodes, they present no risk for inducing a change in natural market trend, consequently there will be an unlimited number of human-nodes nodes licenses available. On the other hand, the fund manager may limit the volume of assets that he will have in his portfolio.  To run a human service node, investors must have a valid licence token issued by the Reactioon Development Team through a RTN payment.
+
+FINAL STEP will be the end of our roadmap and means the realization
+of our first-order goals. After issuing all AI-licenses, the Dev tam will still issuing Human Licenses through a direct payment and use this recurrent revenue to keep developing new strategies and improving the Reactioon ecosystem. 
+After the final step,  a user interested in buying an AI-license will have to directly negotiate with it owner. Users running human-nodes will be able to resell their licenses after finishing all active investors contracts in the market or directly to the Dev Team.
+\subsection{Timetable}
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth]{\input{diagrams/timetable.tex}}
+\caption{Timetable diagram}
+\end{figure}
+\section{RTN token}
+The RTN token may be used within the Reactioon ecosystem and will be traded at the exchanges where it will be listed. We understand that the value of the token will be proportional to the profits that robots will return to the investors.
+
+1 RTN corresponds to 1 credit available on the trading platform. Currently each credit allow users to use the robot for 1-day period. Subsequently it is intended to define operating volume ranges so that the credits charged are proportional to the profit volumes.
+
+\subsection{ICO}
+Our ICO will be released on 09-09-2018 and will last until the end of the available tokens. The prices of each token will be initially set at USD 1. However, the firsts adepts of our platform will get a progressive discount as described bellow:
+
+\begin{table}[!h]
+        \centering
+        
+\begin{tabular}{p{0.2\textwidth}p{0.2\textwidth}|p{0.2\textwidth}}
+\begin{center}
+\textbf{From}
+\end{center}
+ & \begin{center}
+\textbf{To}
+\end{center}
+ & \begin{center}
+\textbf{ICO token price}
+\end{center}
+ \\
+\hline 
+ \begin{center}
+{\small 0}
+\end{center}
+ & \begin{center}
+{\small 100,000}
+\end{center}
+ & \begin{center}
+{\small USD 0.25}
+\end{center}
+ \\
+\hline 
+ \begin{center}
+{\small 100,000}
+\end{center}
+ & \begin{center}
+{\small 500,000}
+\end{center}
+ & \begin{center}
+{\small USD 0.50}
+\end{center}
+ \\
+\hline 
+ \begin{center}
+{\small 500,000}
+\end{center}
+ & \begin{center}
+{\small 1,000,000}
+\end{center}
+ & \begin{center}
+{\small USD 0.75}
+\end{center}
+ \\
+\hline 
+ \begin{center}
+{\small 1,000,000}
+\end{center}
+ & \begin{center}
+{\small 3,000,000}
+\end{center}
+ & \begin{center}
+{\small USD 1.00}
+\end{center}
+ \\
+
+\end{tabular}
+        \end{table}
+
+
+\subsection{Airdrops}
+RTN airdrops will be available during each new listing on a new exchange.
+
+\subsubsection{Token division}
+\begin{itemize}
+    \item [] Founders: 3,000,000
+    
+    \item [] ICO: 3,000,000
+
+    \item [] Cold Wallet: 15,000,000
+
+    \item [] Total supply: 21,000,0000
+
+\end{itemize}
+
+\section{Conclusion}
+
+We at Reactioon intend to change the way asset management is performed in the world. We understand that our model is comparable to that of an investment bank, but differently from them, we are totally transparent and our managers are a group of artificial intelligence machines and humans-aided by machines.
+
+If you do share our philosophy ans belive in the future of crypto-assets, we at Reactioon invite you to our community and to share our business. We're just starting a big change! Join us. 
+
+
+Reactioon: The future is now!
+
+% Tabelas devem ser centradas na página e numeradas com algarismos arábicos.  A legenda deve ficar acima da tabela.   Linhas verticais são opcionais.  Separe a figura do texto anterior com um espaço de 12 pt. 
+
+%\section{Equações}
+
+%Equações devem separadas do texto por espaços de 6 pt (meia linha) antes e depois.  Numere as equações com algarismos arábicos, colocados entre parênteses e alinhados à esquerda,  como mostra o exemplo a seguir.
+
+%\begin{equation}
+%x = y+1.
+%\end{equation}
+
+%Pontue a equação e continue o texto seguinte como se a equação fosse parte do texto.  Por exemplo, a equação 1 termina com um ponto final e o parágrafo seguinte a ela (que é este) começa em maiúscula e com tabulação.  Segundo exemplo: em
+
+%\begin{displaymath}
+%y = x-1,
+%\end{displaymath}
+
+%segue-se a equação 2 com uma vírgula, e o parágrafo seguinte (que é este) começa em minúscula e sem tabulação. Utilize "\$"  para inserir equações no meio do texto, como em $y=x-2$.
+
+%\section{Referências Bibliográficas}
+
+%Referências devem ser citadas no texto no formato (SOBRENOME, ano) ou (SOBRENOME1 e SOBRENOME2, ano), entre parênteses, com os sobrenomes dos autores em maiúscula e o ano de publicação com 4 dígitos.  Havendo muitos autores, indique o primeiro e abrevie os demais com “et al.” – por exemplo (FULANO et al., 1998).
+
+%Caso deseje citar uma obra forma textual no artigo, inclua o ano da publicação entre parênteses após o(s) nome(s) dos autor(es).  Por exemplo: “Segundo Fulano e Sicrano (1999), é possível que...”.
+
+%Para mais informações sobre como citar adequadamente diferentes tipos de trabalho, consulte por exemplo as diretrizes compiladas pela Divisão de Bibliotecas da Escola Politécnica da USP (2013), disponível em
+
+%http://www.poli.usp.br/images/stories/media/download/bibliotecas/DiretrizesTesesDissertacoes.pdf
+
+%\appendix
+%\section*{Apêndices}
+ 
+%A seção de apêndices é opcional.  Se precisar incluí-la, deixe 24 pt (duas linhas) de espaço antes do título “Apêndices”,  escrito centrado na linha, em letras maiúsculas (ou versalete) e tamanho 14 pt.
+ 
+%\addcontentsline{toc}{section}{Apêndices}   % Definindo seção de apêndice
+%\renewcommand{\thesection}{\textit{\Alph{section}} }
+%\section{\textit{Primeiro apêndice}}
+ 
+%Deixe um espaço de 12 pt antes e depois do título do apêndice.  Escreva o título em tamanho 14 pt e em itálico.  Os apêndices devem ser numerados com letras maiúsculas.
+
+
+%\section*{Agradecimentos}
+
+%Agradecimentos (opcional).  Deixe um espaço de 24 pt antes do título “Agradecimentos”, escrito centrado na linha, em maiúscula (ou versalete) e tamanho 14 pt.  Escreva o texto dos agradecimentos após um espaço de 12 pt.
+
+% \centering\section*{REFERENCES}
+%O título da seção de referências deve ter um espaço antes de 24 pt e deve ser escrito centrado na linha, em maiúscula (ou versalete) e tamanho 14 pt.  Deixe um espaço de 12 pt antes do texto da primeira referência.  Deixe um espaço de 6 pt (meia linha) entre as referências.
+
+%Liste as obras pela ordem alfabética do sobrenome do primeiro autor (ou nome da empresa).  Não numere as referências.  Alguns exemplos:
+
+%\noindent SOBRENOME, Nome. Título da publicação.  Edição, Cidade de publicação: Editora, ano, páginas $\{ $Referencia$\} $.
+
+%\noindent SOBRENOME1, Nome1;  SOBRENOME2, Nome2.  Título da publicação.  Edição, Cidade de publicação: Editora, ano, páginas.
+
+%\noindent SOBRENOME1, Nome1;  SOBRENOME2, Nome2; et al.  Título da publicação.  Edição, Cidade de publicação: Editora, ano, páginas.
+
+%Também é possível utilizar o comando \textbackslash bibliography\{\} do LaTeX para inserir as referências a partir de um arquivo .bib, como mostrado a seguir. Para as referências presentes no arquivo .bib aparecerem nessa seção, elas devem ter sido citadas em algum ponto do artigo com o comando \textbackslash cite\{\}, como a seguir: \cite{referencia1}, \cite{referencia2} e \cite{referencia3}.
+
+%\vspace{-8mm}
+\begingroup
+\makeatletter
+\renewcommand{\chapter}{\@gobbletwo}
+\makeatother
+\bibliographystyle{abntex2-alf-mod}
+\bibliography{mybibfile}
+\endgroup
+
+%(Se seu artigo não for escrito em inglês, acrescente aqui as versões em inglês do título, resumo e palavras-chaves)
+
+%\begin{changemargin}{1cm}{1cm} 
+
+%Title: Template for Papers of the Mecatrone Journal 
+
+%\textbf{Abstract} – This is the English version of the resume.
+
+%\textbf{Keywords} – Comma separated list of keywords.
+
+%\end{changemargin}
+
+% \begin{figure}[h]
+%     \includegraphics[width=0.5\textwidth]{figure2}
+%     \caption{figura2}
+%     \label{figura2}
+% \end{figure}
+
+\textbf{José Wilker}, Creator of Reactioon technology. Full stack specialist. expert in PHP / Javascript / NodeJS / C / ShellScript , with background in agile techniques for Project Management and Linux. Loves Math, Chess, Cards and RPG/Strategy Games.
+
+\textbf{Jonathas Marcelo Pereira Figueiredo}, Graduated in Mechatronics Engineering at Escola Politécnica of the University of São Paulo, Brazil. Graduated in Automated Systems and  Information Engineering at ENSE3 Grenoble-INP, France.
+
+\textbf{Lucas Tonini}, Marketing specialist with experience in digital campaigns advisory.
+
+
+% \begin{figure}[h]
+%     \includegraphics[width=0.5\textwidth]{figure2}
+%     \caption{figura2}
+%     \label{figura2}
+% \end{figure}
+
+
+
+\end{document}

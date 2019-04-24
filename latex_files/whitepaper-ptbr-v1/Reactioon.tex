@@ -1,0 +1,507 @@
+% 
+% Modelo white-paper 
+%
+% Marcelo Pereira
+%
+% 
+% e-mail: psnc4ards@gmail.com
+%
+
+
+\documentclass[
+	% -- opções da classe memoir --
+	article,			% indica que é um artigo acadêmico
+	12pt,				% tamanho da fonte
+	oneside,			% para impressão apenas no verso. Oposto a twoside
+	a4paper,			% tamanho do papel. 
+	% -- opções do pacote babel --
+	%english,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	english,
+	sumario=tradicional
+	]{abntex2}
+
+
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{nomencl} 			% Lista de simbolos
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% Para melhorias de justificação
+\usepackage{float}				% Para ajuste na posição de figuras e tabelas
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{adjustbox}
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\definecolor{barblue}{RGB}{153,204,254}
+\definecolor{groupblue}{RGB}{51,102,254}
+\definecolor{linkred}{RGB}{165,0,33}
+
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{mathdots}
+\usepackage{yhmath}
+\usepackage{cancel}
+\usepackage{color}
+\usepackage{siunitx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{tabularx}
+\usepackage{booktabs}
+
+
+
+
+% ---
+		
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+		
+% ---
+% Pacotes de citações
+% ---
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Reactioon White Paper}
+\autor{José Wilker,  \and Jonathas Figueiredo, \and Lucas Tonini}
+\local{Brasil}
+\data{} 
+% ---
+
+% ---
+% Alterando o aspecto da cor azul
+% ---
+\definecolor{blue}{RGB}{41,5,195}
+% ---
+
+% ---
+% Informações do PDF
+% ---
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={Modelo de artigo científico com abnTeX2},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{artigo científico}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% ---
+% Compila o índice
+% ---
+\makeindex
+% ---
+
+% ---
+% Altera as margens padrões
+% ---
+\setlrmarginsandblock{2cm}{2cm}{*}
+\setulmarginsandblock{2cm}{2cm}{*}
+\checkandfixthelayout
+% ---
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{.5cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% Espaçamento simples
+\SingleSpacing
+% ---
+
+% --- 
+% Cabeçalho 
+% --- 
+\makepagestyle{meuestilo}
+  \makeoddhead{meuestilo} %%pagina ímpar ou com oneside
+     {Reactioon}
+     {Vol. 1,  n\textsuperscript{o} 1 (2019)}
+     {White-paper 1.2,  page. \thepage}
+% ---
+
+% ---
+% Margem para resumo, palavras-chave, abstract e keywords
+% ---
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+% ----
+
+% ---
+% Início do documento
+% ---
+\begin{document}
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+% Aplica o cabeçalho em todas as páginas, excetuando-se a primeira
+\pagestyle{meuestilo}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% Página de titulo
+\maketitle
+
+% Aplica cabeçalho na primeira página
+\thispagestyle{meuestilo}
+% ---
+
+% -----------------------------------------------------------
+% Resumo em português
+% -----------------------------------------------------------
+\begin{changemargin}{1cm}{1cm} 
+ \textbf{Resumo} – O desenvolvimento da tecnologia Blockchain e sua rápida popularização colocou em foco um paradigma alternativo para a iteração financeira e não financeira entre indivíduos e organizações. Os contratos inteligentes oferecem uma base para desenvolvimento de novas relações econômicas de forma eficiente e segura. Nesse White-paper nós apresentamos o Reactioon, uma rede inteligente para gestão de criptoativos baseada na associação entre as habilidades humanas e as capacidades de predição de inteligência artificial.
+ 
+ %The development of Blockchain technology has highlighted an alternative paradigm for financial and non-financial iteration among individuals and organizations. The so-called smart contracts provides a basis for the development of new economic relations in an efficient and safe way. In this white paper we present the Reaction, a non-possession crypto-asset management platform, which uses artificial intelligence for trading and forecasting. Reactioon aims to become the largest decentralized crypto-assets management network, relying on the symbiosis between in-humans trust and artificial intelligence capacities.
+ 
+
+ \vspace{\onelineskip}
+ 
+ \noindent
+ \textbf{Keywords} – Criptoativos; Trading; Predição; Inteligência Artifical. 
+ %artigo científico; formatação; diagramação; estilo 
+\end{changemargin}
+
+% ---
+
+%\begin{enumerate}[label=\Alph*]
+%\item \textit{Subitem}
+%\end{enumerate}
+
+% ----------------------------------------------------------
+% Introdução
+% ----------------------------------------------------------
+\section{Nossa Visão}
+As possíveis aplicações financeiras e não financeiras que podem ser estruturadas utilizando a tecnologia blockchain são diversas e o desenvolvimento rápido de novas organizações e contratos trouxe consigo a concepção de diversos projetos e suas altcoins correspondentes as quais são atualmente negociadas em diferentes exchanges ao redor do mundo. A maioria desses projetos compartilham entre si a base estrutural das iniciativas blockchain: descentralização e segurança para seus usuários.
+
+Atualmente, porém, o propósito da tecnologia blockchain é parcialmente distorcido por mecanismos centralizadores tais como empresas de custódia de criptoativos e exchanges centralizadas. Nós da Reactioon acreditamos que esse cenário centralizador é apenas uma etapa transiente rumo a descentralização no mundo crypto.
+
+
+Nós entendemos que as criptomoedas e os ativos negociados através de contratos inteligentes representam o futuro das negociações na economia global, acreditamos também que num futuro próximo as criptomoedas e os contratos inteligentes irão substituir parcialmente as moedas nacionais e contratos centralizados em estruturas de governo ao redor do mundo. 
+
+Nossa crença é baseada em algumas experiências recentes de uso de moedas virtuais ao redor do mundo baseadas no consenso de valor nesse tipo de ativo. Notavelmente algumas aplicações reais tais como o Wechat-Pay na China e o M-pesa na África reforçam a ideia de que as pessoas estão prontas para utilizar ativos virtuais que compartilhem um consenso de valor. Essas experiências, ao nosso entender, endossam a ideia de que a expansão do uso de criptoativos para diversas camadas da população é uma questão de adaptação e tempo.
+
+Como parte da nossa contribuição para o mundo cripto, nós apresentamos nesse documento uma plataforma de gestão de criptoativos sem possessão, desenvolvida para oferecer aos usuários a possibilidade de manter seus criptoativos seguros em sua exchange de confiança e, ao mesmo tempo, realizar lucros através da gerência de gestores especialistas ou bots trading baseados em inteligência artificial.
+
+
+\section{Definição do Problema}
+
+Pessoas que possuem criptoativos normalmente o fazem pois acreditam no projeto por trás de cada token ou coin e atribuem um valor para a capacidade de geração de valor da iniciativa em questão ou pela escassez intrínseca de uma moeda virtual, como é o caso do bitcoin. Assim como nos mercados tradicionais, o preço final de um criptotivo é o resultado de diferentes negociações no mercado e traduz as expectativas das pessoas em relação ao objeto da negociação.  
+
+Pelo fato de existirem diferenças na perspectiva e avaliação e especulações sobre o valor de um determinado projeto ou moeda, o preço de mercado dos ativos flutua consideravelmente, gerando riscos de perda de capital e oportunidades para ganhos no curto prazo. Como consequência, se um investidor em criptoativos não gerenciar adequadamente seu portfólio, ele pode incorrer perdas consideráveis de capital, por outro lado, um bot trader ou um gestor experiente podem realizar ganhos explorando as oportunidades disponíveis em curto e longo prazo, respectivamente. 
+
+
+Algumas plataformas especializadas em arbitragem e trading surgiram para preencher a lacuna de gestão de criptoativos e oferecer a seus clientes ganhos potenciais através da gestão direta de seus ativos. Tais plataformas normalmente oferecem uma alternativa para seus investidores para que eles mantenham seus criptoativos (hold) enquanto realizam lucros com operações de trading, arbitragem, entre outros. Infelizmente, entretanto, muitas das plataformas se mostraram ser esquemas Ponzi cujo único objetivo era coletar dinheiro de potenciais investidores para logo em seguida desaparecerem. Por outro lado, as plataformas honestas que fornecem esse tipo de serviço não eximem seus usuários da ameaça de roubo, uma vez que são pontos focais de recorrentes tentativas de invasão e furto. 
+
+É nesse cenário que o Reactioon surge, com o objetivo de oferecer à comunidade uma plataforma de gestão de criptoativos e trading bot sem a posse direta dos fundos de seus clientes, disponibilizando aos seus usuários a possibilidade de escolha sobre qual exchange confiar seus ativos. Nesse sentido, na Reactioon, os trading bots e gestores humanos podem rearranjar os ativos de terceiros sem necessariamente terem permissões para uso ou transferência para fora de suas carteiras. O que nos torna a primeira plataforma no seu tipo.  
+
+\section{Solução Proposta}
+Nos mercados tradicionais de ações e títulos imobiliários e privados, os clientes têm a opção de confiar a custódia de seus ativos a gerentes especialistas em fundos de ações, fundos imobiliários e até mesmo fundos de trading. Nesse contexto, os gestores têm o poder decisório de alocação de recursos e buscam as melhores oportunidades de investimento segundo o perfil de seus clientes. Nesse contexto, os gestores de fundos que atingem maiores sucessos são aqueles que alcançam confiança e boa performance histórica.
+
+Se por um lado esse é o modelo com o qual o mercado tradicional está acostumado a lidar com o gerenciamento de ativos financeiros, por outro, no mercado de criptoativos a ideia de gerenciamento de terceiros sobre fundos de criptomoedas e tokens ainda é recente. Inspirado nos modelos existentes de gerenciamento de capital, nós da Reactioon propomos um modelo adaptado para o mercado de criptoativos, pautado na segurança, confiança e descentralização.
+
+Nós da Reactioon nos baseamos nos seguintes pilares para a construção do nosso ecossistema de gerenciamento de criptoativos:
+
+
+\begin{itemize}
+    \item [1] A gerenciamento sem posse de cripto ativos.
+    \item [2] A utilização de inteligência artificial para realização de trade.
+    \item [3] A transparência na relação gestores (humanos) e clientes.
+    \item [4] Auxílio à capacidade cognitiva humana utilizando inteligência artificial.
+\end{itemize}
+
+Para realização de uma rede de custódia de ativos que siga as bases apresentadas, nós da Reactioon desenhamos uma infraestrutura baseada na utilização de trading API tokens para movimentação de valores em plataformas de trading (Exchanges), com restrição de privilégios para saques e transferências. Dessa forma, podemos garantir que o item 1 da lista seja satisfeito, assegurando assim que a posse dos criptoativos fique somente em responsabilidade dos clientes e das Exchange escolhidas por eles.
+
+A utilização de inteligência artificial para realização de trade, como citada no item 2, é um serviço oferecido na rede Reactioon e garante que os usuários da rede obtenham lucros com a volatilidade de pares de moedas através da previsão do mercado utilizando algoritmos pré-programados de inteligência artificial para realização de trade. Os trades são realizados diretamente na conta da Exchange na qual o usuário gerou o API token de trade. Para acessar os serviços de trading os clientes devem pagar com a moeda Reactioon (RTN), emitida no ICO desse projeto.   
+
+Como parte da nossa estratégia de descentralização e transparência, o usuário da rede Reactioon poderá optar em qual Exchange deixar confiar a segurança de suas coins/tokens. A equipe de desenvolvimento da Reactioon está trabalhando todos os dias para aumentar o número de Exchanges suportadas na plataforma, e nosso objetivo é incluir Exchanges decentralizadas como forma de fortalecer a filosofia de descentralização do projeto. Mais detalhes sobre as Exchanges incluídas podem ser encontradas na seção Roadmap.
+
+Além da utilização de robôs para realização de trading, nós da Reactioon propomos em nossa plataforma um modelo no qual usuários com status de Gestores poderão criar seus próprios fundos de investimento e administrar fundos de usuários investidores de forma indireta (Através de trade API tokens). Nesse caso, os usuários investidores poderão escolher em qual fundo/gestor investir a partir de dados de rendimentos históricos do fundo e a partir da confiança pessoal em cada gestor. O gestor dos fundos, por sua vez, recebe o pagamento por seus serviços através da moeda Reactioon (RTN) a qual poderá ser revendida em mercados terceiros. 
+
+Nós da Reactioon acreditamos que a custódia direta de fundos por gestores humanos será uma das principais atividades da plataforma no futuro, uma vez que entendemos que muitos dos títulos que atualmente são negociados nas bolsas de valores serão negociados através de contratos inteligentes, tal como já foi acenado por bancos como o BTG e JPMorgan e Goldman Sachs.
+
+A plataforma é desenhada para fornecer aos gestores humanos dados técnicos e fundamentalistas sobre determinado par de moeda/token utilizando-se de algoritmos de inteligência artificial desenvolvidos pela Reactioon. Os dados podem incluir recomendações de portfólio, análises probabilísticas baseadas nas características de um ativo, no histórico preços, contexto econômico, etc. Ao auxiliar os gestores humanos na tomada de decisão, oferecemos um olhar sob a ótica da inteligência artificial preditiva e classificatória.
+
+A figura 1 apresenta um diagrama simplificado da rede Reactioon. A rede é composta por basicamente dois tipos de nós, o nó-AI e o nó-H (Humano). Um nó é uma estrutura contendo algoritmos de tomadas de decisão estratégica cuja a ação de alocação de recursos é comandada por humanos (nós-H) ou trading bots (nós-AI), dependendo da sua estrutura. Cada nó é também uma interface entre clientes investidores e as entidades terceiras de gestão (Gerentes que hospedam nós-AI ou Gestores que operam nós-H). 
+
+O cliente que prefira confiar a gerência de seus ativos a um bot AI (Cliente X) deve fornecer um token API emitido pela Exchange onde mantém seus fundos alocados (ex. Binance). Nesse caso, para contratar o serviço de trading bot o cliente deve escolher algumas configurações iniciais tais como o par de moedas e o nível de risco. Finalmente, para ativar o contrato de trading bot o cliente deve pagar uma quantia fixa correspondente a uma estratégia de operação por um período delimitado (por exemplo, 30 dias). Durante o período de contrato, os fundos do Cliente X na Exchange X serão transacionados diretamente pelo algoritmo AI do nó em questão. O gerente do nó irá receber a quantia correspondente de RTN por cada dia de serviço prestado.
+
+Da mesma maneira, o cliente que prefira confiar seus ativos a um gestor humano (Cliente Y) deve fornecer seu API token emitido pela exchange na qual seus fundos se encontram (Exchange Y). Uma vez que o cliente Y escolheu seu gestor e o respectivo portfólio de investimento (de risco alto, médio ou baixo) ele deve pagar uma determinada quantia de RTN para iniciar o contrato de gestão. O algoritmo do nó irá, então, realizar a alocação de recursos diretamente na Exchange Y segundo as os critérios e estratégias definidos manualmente pelo gestor. O gestor, por sua vez, receberá os RTN correspondentes aos dias em que sua estratégia foi aplicada aos fundos de seus clientes.
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth]{\input{diagrams/node_diagram.tex}}
+\caption{Reactioon network}
+\end{figure}
+
+Em ambos os tipos de contrato os usuários podem optar por não fornecer um token API, nesse caso, porém, deverão realizar os trades e alocações de recursos manualmente baseados em sinais fornecidos pelos nós do Reactioon. Nessa opção o usuário pagará por cada sinal adquirido individualmente. 
+
+\section{Roadmap}
+\subsection{Development steps}
+Nesta seção apresentamos o Roadmap do projeto Reactioon, descrevemos cada etapa do desenvolvimento e nossos principais objetivos. A figura 2 ilustra todas as etapas planejadas para o projeto.
+
+STEP O refere-se à Oferta Inicial de Moedas (ICO). Durante essa etapa, os tokens RTN serão emitidos para investidores alinhados com nossas ideias e interessados em nosso projeto. Nós classificamos os investidores em 3 tipos diferentes:
+\begin{itemize}
+    \item Level-0 refere-se aos investidores interessados apenas em comprar os tokens RTN para revenda futura, ou seja, aqueles que adotam a estratégia de HOLD. 
+    \item Level-1 refere-se a investidores interessados em aumentar seu capital através da utilização dos serviços de gerenciamento da plataforma (trading bot e gerenciamento). Esses investidores são também chamados de clientes de ativos, pois são aqueles cujos ativos são gerenciados. 
+    
+    \item Level-3 refere-se a investidores que planejam comprar e operar seus próprios nós, seja como gerente de um nó-AI ou como gestor de um nó-H.
+\end{itemize}
+
+STEP 1 refere-se a de prova de conceito do projeto. Esta etapa foi planejada para ser realizada em paralelo com o ICO do projeto e consiste na disponibilização do serviço de trading bots (nós-AI) para os primeiros usuários do projeto. O objetivo é endossar a confiança no projeto e aumentar a exposição dos serviços oferecidos.
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth]{\input{diagrams/roadmap.tex}}
+\caption{Roadmap diagram}
+\end{figure}
+STEP 2 refere-se a inclusão de parceiros gerentes de nós-AI na rede Reactioon. Essa será a primeira etapa rumo a descentralização da plataforma. Durante essa etapa alguns nós-AI serão distribuídos para investidores parceiros com o intuito de concedê-los o direito sobre seus próprios nós-AI. Para operar um nó-AI os investidores devem ter uma licença válida emitida pela Reactioon perante o pagamento de uma taxa em RTN ou através de um leilão. As licenças de operação têm quantidade limitada e visam aumentar o valor do token RTN e limitar o volume de operado pelos bots no mundo, garantindo que não haja indução direta de mudança de nas tendências de preços do mercado (pump/dump effects). 
+
+
+STEP 3 refere-se a inclusão de nós-H geridos por gestores humanos na rede Reactioon. Diferente das licenças para nós-AI, a emissão de licenças dos nós-H serão ilimitadas. Dado que as licenças de nós-H são geridas por humanos, o risco de mudança da tendência de mercado é minimizado pelas decisões de alocação de ativos distintas de cada gestor. Por outro lado, o gestor deverá limitar a cota de ativos sob sua gestão. Para operar um nó-H, investidores deverão possuir uma licença válida emitida pela rede Reactioon perante concessão ou pagamento de uma quantia em RTN. 
+
+
+FINAL STEP refere-se a etapa final do roadmap e marca o fim do ciclo dos primeiros objetivos da equipe Reactioon.  Após emitir todas as licenças-AI, os desenvolvedores da Reactioon continuarão emitindo licenças-H como forma de receita recorrente afim de financiar melhorias no ecossistema Reactioon, desenvolver novas estratégias de trading AI e divulgar o projeto.
+
+Após a etapa final, o usuário interessado em comprar uma licença-AI deverá negociar diretamente com os detentores de tais licenças. 
+
+Os usuários detentores de nós-H poderão revender suas licenças para terceiros desde que tenham finalizados os contratos ativos com os clientes sub gestão ou desde que os clientes sob sua gestão autorizem a mudança de gestor. Gestores também poderão adquirir licenças-H diretamente com a equipe Reactioon como mencionado anteriormente.
+
+\subsection{Timetable}
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth]{\input{diagrams/timetable.tex}}
+\caption{Timetable diagram}
+\end{figure}
+\section{Token RTN}
+O token RTN é utilizado dentro do ecossistema Reactioon e poderá ser negociado em exchanges nas quais estiver listado. Nós entendemos que o valor de cada token será proporcional aos lucros que os trading bots renderão aos investidores.
+
+1 RTN corresponde a um crédito disponível na plataforma Reactioon. Atualmente cada crédito permite o uso do trading bot nos nós-AI por um dia por bitcoin movimentado. Nos nós-H os gestores serão responsáveis por definir a política de preços aplicáveis a cada nó, podendo ser por período, por volume ou por porcentagem sobre o ganho.
+
+\subsection{ICO}
+Nosso ICO será lançado dia 09/09/2018 e permanecerá ativo até o fim dos tokens RTN. O preço de cada RTN foi inicialmente definido em 1 USD, dado que atualmente os trading bots podem render até 5 \% ao mês. Entretanto, aos primeiros adeptos da plataforma será oferecido um desconto progressivo por lotes de venda.
+
+Destaca-se que as etapas de desenvolvimento do projeto são independentes do ICO, mas que o ICO é a forma de financiamento da equipe de desenvolvimento, ou seja, quanto mais o projeto é financiado mais rápido é desenvolvido, podendo sofrer alterações na Timetable atual. 
+
+A tabela a seguir apresenta os descontos progressivos e o número de tokens oferecidos no ICO do projeto.
+\begin{table}[!h]
+        \centering
+        
+\begin{tabular}{p{0.2\textwidth}p{0.2\textwidth}|p{0.2\textwidth}}
+\begin{center}
+\textbf{De}
+\end{center}
+ & \begin{center}
+\textbf{Até}
+\end{center}
+ & \begin{center}
+\textbf{Preço do token durante ICO}
+\end{center}
+ \\
+\hline 
+ \begin{center}
+{\small 0}
+\end{center}
+ & \begin{center}
+{\small 100,000}
+\end{center}
+ & \begin{center}
+{\small USD 0.25}
+\end{center}
+ \\
+\hline 
+ \begin{center}
+{\small 100,000}
+\end{center}
+ & \begin{center}
+{\small 500,000}
+\end{center}
+ & \begin{center}
+{\small USD 0.50}
+\end{center}
+ \\
+\hline 
+ \begin{center}
+{\small 500,000}
+\end{center}
+ & \begin{center}
+{\small 1,000,000}
+\end{center}
+ & \begin{center}
+{\small USD 0.75}
+\end{center}
+ \\
+\hline 
+ \begin{center}
+{\small 1,000,000}
+\end{center}
+ & \begin{center}
+{\small 3,000,000}
+\end{center}
+ & \begin{center}
+{\small USD 1.00}
+\end{center}
+ \\
+
+\end{tabular}
+        \end{table}
+
+
+\subsection{Airdrops}
+Airdrops de RTN serão disponibilizados a cada nova listagem em exchanges.
+\subsubsection{Token division}
+A distribuição do token RTN segue o seguinte plano:
+\begin{itemize}
+    \item [] Fundadores: 3,000,000
+    
+    \item [] ICO: 3,000,000
+
+    \item [] Cold Wallet: 15,000,000
+
+    \item [] Total emitido: 21,000,0000
+
+\end{itemize}
+
+\section{Conclusão}
+
+Nós da Reactioon pretendemos mudar o paradigma de gestão de fundos no contexto global. Nós acreditamos que o nosso modelo representa uma forma flexível e transparente para gerenciamento de fundos atuais e futuros negociados através de contratos inteligentes. Nossa estrutura poderá ser utilizada para gestões de fundos independentemente do volume, de forma segura para o cliente e rentável para o gestor.
+
+A proposta da Reactioon está em constante aperfeiçoamento e seguindo as práticas de mercado. Buscamos ser uma alternativa democrática e moderna aos fundos de investimento sem transparência e sem gestão ativa. Acreditamos que a adoção da plataforma por investidores irá gradativamente atrair bons gestores de fundos tradicionais. Além disso, acreditamos que a medida que o lastro de ativos atuais for emitido em contratos inteligentes a plataforma irá se expandir.
+
+Se você compartilha da nossa filosofia e acredita no futuro da tecnologia blockchain, nós te convidamos a se tornar um investidor do projeto e a compartilhar nossos serviços. Nós estamos apenas começando uma jornada de grande mudança. Venha com a gente!
+
+Reactioon: O futuro é agora!
+
+% Tabelas devem ser centradas na página e numeradas com algarismos arábicos.  A legenda deve ficar acima da tabela.   Linhas verticais são opcionais.  Separe a figura do texto anterior com um espaço de 12 pt. 
+
+%\section{Equações}
+
+%Equações devem separadas do texto por espaços de 6 pt (meia linha) antes e depois.  Numere as equações com algarismos arábicos, colocados entre parênteses e alinhados à esquerda,  como mostra o exemplo a seguir.
+
+%\begin{equation}
+%x = y+1.
+%\end{equation}
+
+%Pontue a equação e continue o texto seguinte como se a equação fosse parte do texto.  Por exemplo, a equação 1 termina com um ponto final e o parágrafo seguinte a ela (que é este) começa em maiúscula e com tabulação.  Segundo exemplo: em
+
+%\begin{displaymath}
+%y = x-1,
+%\end{displaymath}
+
+%segue-se a equação 2 com uma vírgula, e o parágrafo seguinte (que é este) começa em minúscula e sem tabulação. Utilize "\$"  para inserir equações no meio do texto, como em $y=x-2$.
+
+%\section{Referências Bibliográficas}
+
+%Referências devem ser citadas no texto no formato (SOBRENOME, ano) ou (SOBRENOME1 e SOBRENOME2, ano), entre parênteses, com os sobrenomes dos autores em maiúscula e o ano de publicação com 4 dígitos.  Havendo muitos autores, indique o primeiro e abrevie os demais com “et al.” – por exemplo (FULANO et al., 1998).
+
+%Caso deseje citar uma obra forma textual no artigo, inclua o ano da publicação entre parênteses após o(s) nome(s) dos autor(es).  Por exemplo: “Segundo Fulano e Sicrano (1999), é possível que...”.
+
+%Para mais informações sobre como citar adequadamente diferentes tipos de trabalho, consulte por exemplo as diretrizes compiladas pela Divisão de Bibliotecas da Escola Politécnica da USP (2013), disponível em
+
+%http://www.poli.usp.br/images/stories/media/download/bibliotecas/DiretrizesTesesDissertacoes.pdf
+
+%\appendix
+%\section*{Apêndices}
+ 
+%A seção de apêndices é opcional.  Se precisar incluí-la, deixe 24 pt (duas linhas) de espaço antes do título “Apêndices”,  escrito centrado na linha, em letras maiúsculas (ou versalete) e tamanho 14 pt.
+ 
+%\addcontentsline{toc}{section}{Apêndices}   % Definindo seção de apêndice
+%\renewcommand{\thesection}{\textit{\Alph{section}} }
+%\section{\textit{Primeiro apêndice}}
+ 
+%Deixe um espaço de 12 pt antes e depois do título do apêndice.  Escreva o título em tamanho 14 pt e em itálico.  Os apêndices devem ser numerados com letras maiúsculas.
+
+
+%\section*{Agradecimentos}
+
+%Agradecimentos (opcional).  Deixe um espaço de 24 pt antes do título “Agradecimentos”, escrito centrado na linha, em maiúscula (ou versalete) e tamanho 14 pt.  Escreva o texto dos agradecimentos após um espaço de 12 pt.
+
+% \centering\section*{REFERENCES}
+%O título da seção de referências deve ter um espaço antes de 24 pt e deve ser escrito centrado na linha, em maiúscula (ou versalete) e tamanho 14 pt.  Deixe um espaço de 12 pt antes do texto da primeira referência.  Deixe um espaço de 6 pt (meia linha) entre as referências.
+
+%Liste as obras pela ordem alfabética do sobrenome do primeiro autor (ou nome da empresa).  Não numere as referências.  Alguns exemplos:
+
+%\noindent SOBRENOME, Nome. Título da publicação.  Edição, Cidade de publicação: Editora, ano, páginas $\{ $Referencia$\} $.
+
+%\noindent SOBRENOME1, Nome1;  SOBRENOME2, Nome2.  Título da publicação.  Edição, Cidade de publicação: Editora, ano, páginas.
+
+%\noindent SOBRENOME1, Nome1;  SOBRENOME2, Nome2; et al.  Título da publicação.  Edição, Cidade de publicação: Editora, ano, páginas.
+
+%Também é possível utilizar o comando \textbackslash bibliography\{\} do LaTeX para inserir as referências a partir de um arquivo .bib, como mostrado a seguir. Para as referências presentes no arquivo .bib aparecerem nessa seção, elas devem ter sido citadas em algum ponto do artigo com o comando \textbackslash cite\{\}, como a seguir: \cite{referencia1}, \cite{referencia2} e \cite{referencia3}.
+
+%\vspace{-8mm}
+\begingroup
+\makeatletter
+\renewcommand{\chapter}{\@gobbletwo}
+\makeatother
+\bibliographystyle{abntex2-alf-mod}
+\bibliography{mybibfile}
+\endgroup
+
+%(Se seu artigo não for escrito em inglês, acrescente aqui as versões em inglês do título, resumo e palavras-chaves)
+
+%\begin{changemargin}{1cm}{1cm} 
+
+%Title: Template for Papers of the Mecatrone Journal 
+
+%\textbf{Abstract} – This is the English version of the resume.
+
+%\textbf{Keywords} – Comma separated list of keywords.
+
+%\end{changemargin}
+
+% \begin{figure}[h]
+%     \includegraphics[width=0.5\textwidth]{figure2}
+%     \caption{figura2}
+%     \label{figura2}
+% \end{figure}
+\textbf{José Wilker}, Criador da tecnologia do Reactioon. Faz tudo. programador PHP / Javascript / NodeJS / C / ShellScript com habilidades em gerenciamento de projetos e Linux. Gosta de  Matemática, Xadrez, Cartas e jogos de RPG/Estratégia.
+
+\textbf{Jonathas Marcelo Pereira Figueiredo}, Graduado em Engenharia Mecatrônica na Escola Politécnica da Universidade de São Paulo (POLI-USP), Brasil. Graduado em Sistemas Autônomos e Engenharia da Informação na ENSE3 Grenoble-INP, França.
+
+\textbf{Lucas Tonini}, Especialista em Marketing com experiência em gestão para campanhas digitais.
+
+
+% \begin{figure}[h]
+%     \includegraphics[width=0.5\textwidth]{figure2}
+%     \caption{figura2}
+%     \label{figura2}
+% \end{figure}
+
+
+
+\end{document}
